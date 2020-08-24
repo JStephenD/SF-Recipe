@@ -357,7 +357,18 @@ def export():
     return {
         'carbon': carbon, 'compressed_carbon': compressed_carbon, 'carbon_chunk': carbon_chunk,
         'copper_ingot': copper_ingot, 'silver_ingot': silver_ingot, 'magnesium_ingot': magnesium_ingot,
-        'zinc_ingot': zinc_ingot,
+        'zinc_ingot': zinc_ingot, 'tin_ingot': tin_ingot, 'lead_ingot': lead_ingot,
+        'aluminum_ingot': aluminum_ingot, 'steel_ingot': steel_ingot, 'damascus_steel_ingot': damascus_steel_ingot,
+        'bronze_ingot': bronze_ingot, 'duralumin_ingot': duralumin_ingot, 'billon_ingot': billon_ingot,
+        'brass_ingot': brass_ingot, 'aluminum_brass_ingot': aluminum_brass_ingot,
+        'aluminum_bronze_ingot': aluminum_bronze_ingot, 'hardened_metal': hardened_metal,
+        'corinthian_bronze_ingot': corinthian_bronze_ingot, 'solder_ingot': solder_ingot,
+        'synthetic_sapphire': synthetic_sapphire, 'synthetic_diamond': synthetic_diamond, 'raw_carbonado': raw_carbonado,
+        'nickel_ingot': nickel_ingot, 'cobalt_ingot': cobalt_ingot, 'carbonado': carbonado, 'silicon': silicon,
+        'ferrosilicon': ferrosilicon, 'sulfate': sulfate, 'gold_4': gold_4, 'gold_6': gold_6, 'gold_8': gold_8,
+        'gold_10': gold_10, 'gold_12': gold_12, 'gold_14': gold_14, 'gold_16': gold_16, 'gold_18': gold_18,
+        'gold_20': gold_20, 'gold_22': gold_22, 'gold_24': gold_24, 'reinforced_alloy_ingot': reinforced_alloy_ingot,
+        'synthetic_emerald': synthetic_emerald,
     }
 
 x = pformat(damascus_steel_ingot(1))
