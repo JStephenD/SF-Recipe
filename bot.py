@@ -21,9 +21,10 @@ def clean(d):
     rv = defaultdict(int)
     for k, v in d.items():
         if isinstance(v, dict):
-            rv[k] = clean(v)
-
-        rv[k] += v
+            for k, v in clean(v).items():
+                rv[k] = v
+        else:
+            rv[k] += v
     return rv
 
 @bot.command()
