@@ -27,7 +27,7 @@ def clean(d):
     for k, v in d.items():
         if isinstance(v, dict):
             for k, v in clean(v).items():
-                rv[k] = v
+                rv[k] += v
         else:
             rv[k] += v
     return rv
