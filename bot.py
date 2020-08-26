@@ -37,14 +37,14 @@ def format_msg(d: dict):
     x += '```'
     return x
 
-def parse_msg(*msgs):
-    item = ''
+def parse_msg(msgs):
+    item = []
     amt = 0
     for msg in msgs:
         if msg.isdigit():
             amt += int(msg)
         else:
-            item += msg
+            item.append(msg)
     return ('_'.join(item), amt)
 
 @bot.command()
@@ -53,14 +53,11 @@ async def raw(ctx, msg):
 
 @bot.command()
 async def nraw(ctx, *msgs):
-    print(msgs)
-    for msg in msgs:
-        print(msg)
-    # item, amt = parse_msg(msgs)
-    # recipe_unclean = recipes[item](amt)
-    # cleaned = clean(recipe_unclean)
-    # formatted = format_msg(cleaned)
-    # await ctx.send(formatted)
+    item, amt = parse_msg(msgs)
+    recipe_unclean = recipes[item](amt if amt else 1)
+    cleaned = clean(recipe_unclean)
+    formatted = format_msg(cleaned)
+    await ctx.send(formatted)
 
 @bot.command()
 async def ping(ctx):
