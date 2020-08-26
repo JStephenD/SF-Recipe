@@ -27,6 +27,17 @@ def clean(d):
             rv[k] += v
     return rv
 
+def format_msg(d: dict):
+    x = ''
+    for i, t in enumerate(clean(d).items()):
+        k, v = t
+        if i == 0: x += f'>{k}: {v}'
+        else: x += f'\n>{k}: {v}'
+    return x
+
+def parse_msg(*msg):
+    pass
+
 @bot.command()
 async def raw(ctx, msg):
     pass
@@ -36,8 +47,8 @@ async def nraw(ctx, *item, amt=1):
     item = '_'.join(i for i in item)
     recipe_unclean = recipes[item](amt)
     cleaned = clean(recipe_unclean)
-    print(cleaned)
-    await ctx.send(cleaned)
+    formatted = format_msg(cleaned)
+    await ctx.send(formatted)
 
 @bot.command()
 async def ping(ctx):

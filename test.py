@@ -27,5 +27,11 @@ e = {
     12: 13
 }
 
-for k, v in clean(e).items():
-    print(f'{k}: {v}')
+x = ''
+
+for i, t in enumerate(clean(e).items()):
+    k, v = t
+    if i == 0: x += f'>{k}: {v}'
+    else: x += f'\n>{k}: {v}'
+
+print(x)
