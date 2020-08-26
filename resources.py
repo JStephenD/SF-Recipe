@@ -370,6 +370,3 @@ def export():
         'gold_20': gold_20, 'gold_22': gold_22, 'gold_24': gold_24, 'reinforced_alloy_ingot': reinforced_alloy_ingot,
         'synthetic_emerald': synthetic_emerald,
     }
-
-x = pformat(damascus_steel_ingot(1))
-# print(x)

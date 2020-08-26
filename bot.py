@@ -6,6 +6,7 @@ from discord.ext.commands import Bot
 from resources import export as resources
 
 from pprint import pformat
+from collections import defaultdict
 
 BOT_TOKEN = os.environ['BOT_TOKEN']
 command_prefix = ('??')
@@ -16,6 +17,15 @@ recipes = {
     k: v for k, v in resources().items()
 }
 
+def clean(d):
+    rv = defaultdict(int)
+    for k, v in d.items():
+        if isinstance(v, dict):
+            rv[k] = clean(v)
+
+        rv[k] += v
+    return rv
+
 @bot.command()
 async def raw(ctx, msg):
     pass
@@ -23,7 +33,10 @@ async def raw(ctx, msg):
 @bot.command()
 async def nraw(ctx, *item, amt=1):
     item = '_'.join(i for i in item)
-    await ctx.send(recipes[item](amt))
+    recipe_unclean = recipes[item](amt)
+    cleaned = clean(recipe_unclean)
+    print(cleaned)
+    await ctx.send(cleaned)
 
 @bot.command()
 async def ping(ctx):
