@@ -31,8 +31,10 @@ def format_msg(d: dict):
     x = ''
     for i, t in enumerate(clean(d).items()):
         k, v = t
-        if i == 0: x += f'>{k}: {v}'
-        else: x += f'\n>{k}: {v}'
+        if i == 0: 
+            x += f'> ```css {k}: {v}```'
+        else: 
+            x += f'\n> ```css {k}: {v}```'
     return x
 
 def parse_msg(*msg):
