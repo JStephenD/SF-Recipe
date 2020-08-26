@@ -9,12 +9,12 @@ from technical_components import (
 )
 
 def cargo_motor(amt=4):
-    return amounter({
+    return {
         'hardened glass': hardened_glass(4*ceil(amt/4)),
         'silver ingot': silver_ingot(2*ceil(amt/4)),
         'electromagnet': electromagnet(2*ceil(amt/4)),
         'electrice motor': electric_motor(1*ceil(amt/4))
-    }, amt)
+    }
 
 def cargo_manager(amt=1):
     return amounter({
@@ -22,25 +22,25 @@ def cargo_manager(amt=1):
     }, amt)
 
 def cargo_node(amt=4):
-    return amounter({
+    return {
         'silver ingot': silver_ingot(4*ceil(amt/4)),
         'bronze ingot': bronze_ingot(4*ceil(amt/4)),
         'cargo motor': cargo_motor(1*ceil(amt/4))
-    }, amt)
+    }
 
 def cargo_node_input(amt=2):
-    return amounter({
+    return {
         'cargo node': cargo_node(1*ceil(amt/2)),
         'hopper': 2*ceil(amt/2),
         'billon_ingot': billon_ingot(2*ceil(amt/2))
-    }, amt)
+    }
 
 def cargo_node_output(amt=2):
-    return amounter({
+    return {
         'cargo node': cargo_node(1*ceil(amt/2)),
         'hopper': 2*ceil(amt/2),
         'brass_ingot': brass_ingot(2*ceil(amt/2))
-    }, amt)
+    }
 
 def export():
     return {

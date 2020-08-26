@@ -19,10 +19,6 @@ recipes = {}
 recipes.update(resources())
 recipes.update(technical_components())
 recipes.update(cargo_management())
-# recipes = {
-#     k: v for k, v in resources().items(),
-#     k: v for k, v in technical_components().items()
-# }
 
 def clean(d):
     rv = defaultdict(int)
@@ -41,16 +37,23 @@ def format_msg(d: dict):
     x += '```'
     return x
 
-def parse_msg(*msg):
-    pass
+def parse_msg(*msgs):
+    item = ''
+    amt = 0
+    for msg in msgs:
+        if msg.isdigit():
+            amt += int(msg)
+        else:
+            item += msg
+    return ('_'.join(item), amt)
 
 @bot.command()
 async def raw(ctx, msg):
     pass
 
 @bot.command()
-async def nraw(ctx, *item, amt=1):
-    item = '_'.join(i for i in item)
+async def nraw(ctx, *msgs):
+    item, amt = parse_msg(msgs)
     recipe_unclean = recipes[item](amt)
     cleaned = clean(recipe_unclean)
     formatted = format_msg(cleaned)
@@ -62,4 +65,8 @@ async def ping(ctx):
 
 if __name__ == '__main__':
     print('Initializing Bot')
+    # recipe_unclean = recipes['hardened_glass'](17)
+    # cleaned = clean(recipe_unclean)
+    # formatted = format_msg(cleaned)
+    # print(formatted)
     bot.run(BOT_TOKEN)

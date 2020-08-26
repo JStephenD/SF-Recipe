@@ -8,69 +8,69 @@ from resources import (
 
 def battery(amt=1):
     return amounter({
-        'copper ingot': copper_ingot(2*amt),
-        'zinc ingot': zinc_ingot(2*amt),
-        'sulfate': sulfate(2*amt),
+        'copper ingot': copper_ingot(2),
+        'zinc ingot': zinc_ingot(2),
+        'sulfate': sulfate(2),
         'redstone dust': 1
     }, amt)
 
 def magnet(amt=1):
     return amounter({
-        'nickel ingot': nickel_ingot(1*amt),
-        'cobalt ingot': cobalt_ingot(1*amt),
+        'nickel ingot': nickel_ingot(1),
+        'cobalt ingot': cobalt_ingot(1),
         'aluminum dust': 1,
         'iron dust': 1
     }, amt)
 
 def electromagnet(amt=1):
     return amounter({
-        'nickel ingot': nickel_ingot(1*amt),
-        'cobalt ingot': cobalt_ingot(1*amt),
-        'magnet': magnet(1*amt),
-        'batter': battery(1*amt)
+        'nickel ingot': nickel_ingot(1),
+        'cobalt ingot': cobalt_ingot(1),
+        'magnet': magnet(1),
+        'batter': battery(1)
     }, amt)
 
 def copper_wire(amt=8):
-    return amounter({
+    return {
         'copper ingot': copper_ingot(3*ceil(amt/8))
-    }, amt)
+    }
 
 def electric_motor(amt=1):
     return amounter({
-        'copper wire': copper_wire(6*amt),
-        'electromagnet': electromagnet(1*amt)
+        'copper wire': copper_wire(6),
+        'electromagnet': electromagnet(1)
     }, amt)
 
 def heating_coil(amt=1):
     return amounter({
-        'electric motor': electric_motor(1*amt),
-        'copper wire': copper_wire(8*amt)
+        'electric motor': electric_motor(1),
+        'copper wire': copper_wire(8)
     }, amt)
 
 def reinforced_plate(amt=1):
     return amounter({
-        'reinforced alloy ingot': reinforced_alloy_ingot(8*amt)
+        'reinforced alloy ingot': reinforced_alloy_ingot(8)
     }, amt)
 
 def hardened_glass(amt=16):
-    return amounter({
+    return {
         'glass': 8*ceil(amt/16),
         'reinforced plate': reinforced_plate(1*ceil(amt/16))
-    }, amt)
+    }
 
 def power_crystal(amt=1):
     return amounter({
-        'redstone dust': 4*amt,
-        'synthetic_sapphire': 4*amt,
-        'synthetic_diamond': 1*amt
+        'redstone dust': 4,
+        'synthetic_sapphire': 4,
+        'synthetic_diamond': 1
     }, amt)
 
 def android_memory_core(amt=1):
     return amounter({
-        'power_crystal': 2*amt,
-        'tin dust': 1*amt,
-        'orange stained glass': 2*amt,
-        'brass_ingot': brass_ingot(4*amt)
+        'power_crystal': 2,
+        'tin dust': 1,
+        'orange stained glass': 2,
+        'brass_ingot': brass_ingot(4)
     }, amt)
 
 def export():
