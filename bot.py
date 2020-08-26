@@ -53,11 +53,12 @@ async def raw(ctx, msg):
 
 @bot.command()
 async def nraw(ctx, *msgs):
-    item, amt = parse_msg(msgs)
-    recipe_unclean = recipes[item](amt)
-    cleaned = clean(recipe_unclean)
-    formatted = format_msg(cleaned)
-    await ctx.send(formatted)
+    print(msgs)
+    # item, amt = parse_msg(msgs)
+    # recipe_unclean = recipes[item](amt)
+    # cleaned = clean(recipe_unclean)
+    # formatted = format_msg(cleaned)
+    # await ctx.send(formatted)
 
 @bot.command()
 async def ping(ctx):
