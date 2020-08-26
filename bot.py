@@ -28,10 +28,10 @@ def clean(d):
     return rv
 
 def format_msg(d: dict):
-    x = '>>> '
-    for i, t in enumerate(clean(d).items()):
-        k, v = t
-        x += f'\n ```css {k}: {v}```'
+    x = '```css'
+    for k, v in d.items():
+        x += f'\n{k}: {v}'
+    x += '```'
     return x
 
 def parse_msg(*msg):
