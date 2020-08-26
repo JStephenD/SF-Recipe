@@ -5,6 +5,7 @@ from discord.ext.commands import Bot
 
 from resources import export as resources
 from technical_components import export as technical_components
+from cargo_management import export as cargo_management
 
 from pprint import pformat
 from collections import defaultdict
@@ -17,6 +18,7 @@ bot = Bot(command_prefix=command_prefix)
 recipes = {}
 recipes.update(resources())
 recipes.update(technical_components())
+recipes.update(cargo_management())
 # recipes = {
 #     k: v for k, v in resources().items(),
 #     k: v for k, v in technical_components().items()
