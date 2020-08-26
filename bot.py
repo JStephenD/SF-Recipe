@@ -54,6 +54,8 @@ async def raw(ctx, msg):
 @bot.command()
 async def nraw(ctx, *msgs):
     print(msgs)
+    for msg in msgs:
+        print(msg)
     # item, amt = parse_msg(msgs)
     # recipe_unclean = recipes[item](amt)
     # cleaned = clean(recipe_unclean)
