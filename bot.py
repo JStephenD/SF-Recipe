@@ -4,6 +4,7 @@ import discord
 from discord.ext.commands import Bot
 
 from resources import export as resources
+from technical_components import export as technical_components
 
 from pprint import pformat
 from collections import defaultdict
@@ -13,9 +14,13 @@ command_prefix = ('??')
 
 bot = Bot(command_prefix=command_prefix)
 
-recipes = {
-    k: v for k, v in resources().items()
-}
+recipes = {}
+recipes.update(resources)
+recipes.update(technical_components)
+# recipes = {
+#     k: v for k, v in resources().items(),
+#     k: v for k, v in technical_components().items()
+# }
 
 def clean(d):
     rv = defaultdict(int)
