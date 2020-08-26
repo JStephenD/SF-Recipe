@@ -15,8 +15,8 @@ command_prefix = ('??')
 bot = Bot(command_prefix=command_prefix)
 
 recipes = {}
-recipes.update(resources)
-recipes.update(technical_components)
+recipes.update(resources.items())
+recipes.update(technical_components.items())
 # recipes = {
 #     k: v for k, v in resources().items(),
 #     k: v for k, v in technical_components().items()
